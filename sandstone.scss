@@ -1,4 +1,4 @@
-// Available tones: default, firefox, dark, light, aurora, nightly
+// Available tones: default, firefox, dark, light, aurora, nightly, mdn
 $tone: 'default';
 
 @font-face{
@@ -31,7 +31,10 @@ $tone: 'default';
     } @else if $tone == 'nightly' {
         $top-color: #002147;
         $bottom-color: #000000;
-    } 
+    } @else if $tone == 'mdn' {
+        $top-color: #630a0c;
+        $bottom-color: #000;
+    }
     background-color: $top-color; /* fallback color if gradients are not supported */
     background-image: -webkit-linear-gradient(top, $top-color, $bottom-color);
     background-image:    -moz-linear-gradient(top, $top-color, $bottom-color); /* For Fx 3.6 to Fx 15 */
@@ -42,7 +45,7 @@ $tone: 'default';
 
 @mixin sand_color($fade: 0%) {
     $color: #000;
-    @each $dark_tone in dark, aurora, nightly {
+    @each $dark_tone in dark, aurora, nightly, mdn {
         @if $tone == $dark_tone {
             $color: invert($color);
         } @else {
